@@ -1,4 +1,4 @@
-- name: Kalliope list_all_orders neuron install
+- name: Kalliope list_available_orders neuron install
   hosts: localhost
   gather_facts: no
   connection: local
