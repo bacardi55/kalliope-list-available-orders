@@ -6,7 +6,9 @@ Get the list of available orders
 
 ## Install
 
-kalliope install --git-url git@github.com:bacardi55/kalliope-list-all-orders.git
+  ```
+  kalliope install --git-url git@github.com:bacardi55/kalliope-list-all-orders.git
+  ```
 
 
 ## Options
