@@ -57,3 +57,7 @@ If no order are found, a simple "order not found" sentence will be said by Kalli
     No order found.
 {% endif %}
 ```
+
+
+* [Blog post about this neuron](https://bacardi55.org/en/blog/2017/available-commands-kalliope-neuron)
+* [my posts about kalliope](https://bacardi55.org/en/blog/2017/kalliope-neuron-google-calendar)
