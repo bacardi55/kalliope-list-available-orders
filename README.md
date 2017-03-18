@@ -59,5 +59,6 @@ If no order are found, a simple "order not found" sentence will be said by Kalli
 ```
 
 
-* [Blog post about this neuron](https://bacardi55.org/en/blog/2017/available-commands-kalliope-neuron)
-* [my posts about kalliope](http://bacardi55.org/en/term/kalliope)
+* [Blog post about this neuron](http://bacardi55.org/2017/01/04/available-commands-on-kalliope-neuron.html)
+* [my posts about kalliope](http://bacardi55.org/kalliope.html)
+ 
