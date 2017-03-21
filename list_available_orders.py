@@ -1,7 +1,6 @@
-import logging
 import re
 
-from kalliope.core.NeuronModule import NeuronModule, MissingParameterException
+from kalliope.core.NeuronModule import NeuronModule
 from kalliope.core.Models import Order
 
 class List_available_orders(NeuronModule):
@@ -49,7 +48,7 @@ class List_available_orders(NeuronModule):
         """
 
         s = sentence
-        pattern = re.compile("\{\{ \w+ \}\}")
+        pattern = re.compile("\{\{ *\w+ *\}\}")
 
         if pattern.search(sentence) is not None and query_replace_text is not None:
             s = re.sub(pattern, query_replace_text, sentence)
