@@ -9,17 +9,22 @@ class List_available_orders(NeuronModule):
 
         ignore_machine_name = kwargs.get('ignore_machine_name', None)
         query_replace_text = kwargs.get("query_replace_text", None)
+        order_per_synapse_limit = kwargs.get("order_per_synapse_limit", None)
 
         self.values = dict()
         self.values['orders'] = []
         self.values['nb_orders'] = 0
 
         for synapse in self.brain.synapses:
+            cptr = 0
             for signal in synapse.signals:
                 if isinstance(signal, Order):
                     if self._is_valid_order(signal.sentence, ignore_machine_name):
                         self.values['orders'].append(
                             self._get_final_sentence(signal.sentence, query_replace_text))
+                        cptr += 1
+                        if order_per_synapse_limit is not None and order_per_synapse_limit == cptr:
+                            break
 
         self.values['nb_orders'] = len(self.values['orders'])
 
