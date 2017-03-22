@@ -13,10 +13,11 @@ Get the list of available orders
 
 ## Options
 
-| parameter            | required | default | choices              | comment                                                                                                          |
-|----------------------|----------|---------|----------------------|------------------------------------------------------------------------------------------------------------------|
-| ignore_machine_name  | no       |         | 1 if you wish to ignore machine name orders | If 1, orders written with "-" instead of space will be ignored: (eg: Default-response)    |
-| query_replace_text   | no       |         | A String                                    | The replacement text for the arguments in order (eg: {{ query }} or {{ location }}        |
+| parameter              | required | default | choices                                     | comment                                                                                   |
+|------------------------|----------|---------|---------------------------------------------|-------------------------------------------------------------------------------------------|
+| ignore_machine_name    | no       |         | 1 if you wish to ignore machine name orders | If 1, orders written with "-" instead of space will be ignored: (eg: Default-response)    |
+| query_replace_text     | no       |         | A String                                    | The replacement text for the arguments in order (eg: {{ query }} or {{ location }}        |
+| order_per_synapse_limit| no       |         | An int                                      | The number of order per synapse. Default all. (will take them in order in synapse)        |
 
 
 ## Return Values
@@ -39,6 +40,7 @@ This synapse will list all orders except the machine named ones and will replace
       - list_available_orders:
           query_replace_text: "and the argument"
           ignore_machine_name: 1
+          order_per_synapse_limit: 1
           file_template: "templates/en_all_available_orders.j2"
 ```
 
