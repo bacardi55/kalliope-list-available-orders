@@ -1,7 +1,11 @@
 import re
+import logging
 
 from kalliope.core.NeuronModule import NeuronModule
-from kalliope.core.Models import Order
+from kalliope.core.Models import Signal
+
+logging.basicConfig()
+logger = logging.getLogger("kalliope")
 
 class List_available_orders(NeuronModule):
     def __init__(self, **kwargs):
@@ -18,10 +22,10 @@ class List_available_orders(NeuronModule):
         for synapse in self.brain.synapses:
             cptr = 0
             for signal in synapse.signals:
-                if isinstance(signal, Order):
-                    if self._is_valid_order(signal.sentence, ignore_machine_name):
+                if isinstance(signal, Signal):
+                    if signal.name == "order" and self._is_valid_order(signal.parameters, ignore_machine_name):
                         self.values['orders'].append(
-                            self._get_final_sentence(signal.sentence, query_replace_text))
+                            self._get_final_sentence(signal.parameters, query_replace_text))
                         cptr += 1
                         if order_per_synapse_limit is not None and order_per_synapse_limit == cptr:
                             break
